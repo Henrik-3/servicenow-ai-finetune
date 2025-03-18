@@ -6,10 +6,10 @@ const readline = require('readline');
 // Configuration based on the diagram
 const apiScopes = [
     {"ui": "Client", "devportal": "client"},
-    /*{"ui": "Client Mobile", "devportal": "client_mobile"},
+    {"ui": "Client Mobile", "devportal": "client_mobile"},
     {"ui": "REST", "devportal": "rest"},
     {"ui": "Server Scoped", "devportal": "server"},
-    {"ui": "Server Global", "devportal": "server_legacy"}*/
+    {"ui": "Server Global", "devportal": "server_legacy"}
 ];
 
 const version = "yokohama"; // ServiceNow release version
@@ -26,7 +26,7 @@ const config = {
     openrouter: {
         apiKey: process.env.OPENROUTER_API_KEY,
         baseUrl: "https://openrouter.ai/api/v1",
-        model: process.env.OPENROUTER_MODEL || "qwen/qwen-2.5-coder-32b-instruct"
+        model: "google/gemini-2.0-flash-001"
     },
     // Process options
     processingOptions: {
@@ -37,8 +37,8 @@ const config = {
     }
 };
 const headers = {
-    "Cookie": "BIGipServerpool_devportalprod=99b93d591e153af876bf88601b476212; glide_user_route=glide.328fc8704f51f73f2e9ef0a00b6a2663; glide_node_id_for_js=3649a9ee3e20b8a2d3d2d96b461c3444d0d7dce6cd530f904d7ce22a5838a7e8; AMCVS_2A2A138653C66CB60A490D45%40AdobeOrg=1; notice_behavior=expressed,eu; notice_preferences=2:; notice_gdpr_prefs=0,1,2:; cmapi_gtm_bl=; cmapi_cookie_privacy=permit 1,2,3; AMCV_2A2A138653C66CB60A490D45%40AdobeOrg=-408604571%7CMCIDTS%7C20165%7CMCMID%7C25021386690991074286449544109658458666%7CMCOPTOUT-1742256204s%7CNONE%7CvVersion%7C4.6.0; JSESSIONID=F981B9518C1D1C8CA1DA17ECD861AD01; sso_seamless_local=1742255525151",
-    "X-Usertoken": "0dbb139edbd8a654079e43c81396198402d447ed73956e2a1dc014ca74b9acbb1726fcc0"
+    "Cookie": "notice_preferences=2:; notice_gdpr_prefs=0,1,2:; cmapi_gtm_bl=; cmapi_cookie_privacy=permit 1,2,3; BIGipServerpool_devportalprod=c9f68a527a3f785b10c73ae81e0add94; AMCVS_2A2A138653C66CB60A490D45%40AdobeOrg=1; glide_user_route=glide.e1476ef0e745babc933765dc1b5a9cde; glide_node_id_for_js=86c3abee6a0ee7b8ca79aec874ede947962141076601ec0d4df1b64321380258; bm_sz=813DA6B9B1C27A236AFFB15B45582FE7~YAAQu3p7XLELe46VAQAA2gEEqxs7G80PjkpjLdZxTa1QYzH//eKj9jk6g1CWGr+mrt/8fPInyCfQngWHwE2soOuFf6iLtmxiv+abxH+qwAoMxQRH15kv4zFXYSguUx8jisY+jSmHT9qgX91P9iU5zTjDAxvbpas2nD7E2PLtUxNFXuZlJ1iYN4YIWWuZrJgXu+S0gUBgHpd/C2xB475HnNlHHS6QONo7o/BvmslxgVOz/hdidzewmCsLcbT42cmwYu6jKkRnEcHvHc2KndXOXCSzEM6VmqUqTzOLIKkkuLTkHRiFndpdyc3OmM/AgLndRuEg858cX6gYc2bP7jZV+fmwShfX1dh/ACAIEpDz/r1qBGFGmfi5ZC7chg+vufRezw4zQJRf7rlSJgzjI6Yav+f/oA==~3229238~3687984; notice_behavior=expressed,eu; _abck=181605BA6B174593896679CF7EBA797C~0~YAAQu3p7XHEMe46VAQAA4wcEqw1ixXFFt6oodRkwCa6WEQnys1Dbp6mMFQrTqooaVZ3UCPlnZDE32sNAmT7gLyLli/5eBPVKTdXfHz/aLuoaWFr1svcsOVmFzm188QmcIVG48txjRaaqjmDAARf5PpIgg9y946mZR6V9WMhoND2U14rN+dX9ETK3mamv8NsYtL5/OoIkS1O1hrwjAFiK9WR0tapgaGb3NflWSubxVy+T8VC4c4OXlxzA6Tj1hxvSIcBopjRteqatY3SxacENyjM9wkCfZha1sG469AbWKD3neZFWjrwuuJ3JvU8dkEDfSD5PKEvZiqR7ne6jhnPVad57g9TlUEZUdioCKNJan80zTPPer9PWeNXLlkl0FWBc8bl+45RaE3dPEwMAB3r81hBvY1GENmMJFGTN9Wh2rIOslAnJjPgM+8DfZSyrtAKWuNBC3EB8Qrw+VH0XropSHq+AFxwQQovDL0ioO+/jGApHkyQ+6+kw6u0ONkEfkoM=~-1~||0||~-1; TAsessionID=9f06fc30-1688-4075-b896-3ce487175270|EXISTING; JSESSIONID=4F53D862FFDD85DFA83484A6D76D778A; sso_seamless_local=1742343989116; AMCV_2A2A138653C66CB60A490D45%40AdobeOrg=-408604571%7CMCIDTS%7C20165%7CMCMID%7C25021386690991074286449544109658458666%7CMCOPTOUT-1742347592s%7CNONE%7CvVersion%7C4.6.0%7CMCAID%7CNONE",
+    "X-Usertoken": "8a2da87adb18e6545593c4be1396192b651132366bce4e41899ba1974bc5e6743578d004"
 }
 
 // Ensure output directory exists
@@ -48,6 +48,7 @@ if (!fs.existsSync(outputDir)) {
 
 function removeHtmlTagsAndElements(text) {
     if (!text) return '';
+
     // Remove HTML tags
     text = text.replace(/<[^>]*>/g, '');
 
@@ -58,6 +59,10 @@ function removeHtmlTagsAndElements(text) {
         text = text.replace(regex, '');
     });
 
+    // Remove multiple empty lines and replace with a single newline
+    text = text.replace(/(\r?\n){2,}/g, '\n');
+
+    // Trim leading and trailing whitespace
     return text.trim();
 }
 
@@ -94,7 +99,7 @@ function formatDocPrompt(docData) {
 Based on the following method from the ServiceNow documentation, generate 3 realistic questions that a developer might ask. Formulate the appropriate answer for each, including a code example. Start each Question with "Question 1:", "Question 2:", etc.
 
 Method: ${classData.name}.${method.name}
-Description: ${removeHtmlTagsAndElements(returns.text) || ''}. ${removeHtmlTagsAndElements(returns.text2) || ''}
+Description: ${removeHtmlTagsAndElements(method.text) || ''}. ${removeHtmlTagsAndElements(method.text2) || ''}
 
 Parameter:
 ${paramString}
