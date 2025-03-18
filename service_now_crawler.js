@@ -17,7 +17,7 @@ const outputDir = path.join(__dirname, 'output');
 
 // AI API Configuration
 const config = {
-    // OpenAI/LM Studio Configuration
+    // Ollama/LM Studio Configuration
     lmstudio: {
         baseUrl: "http://localhost:1234/v1",
         model: "qwen2.5-coder-14b-instruct"
@@ -31,7 +31,7 @@ const config = {
     // Process options
     processingOptions: {
         useAI: true,              // Set to false to skip AI processing
-        aiProvider: "openai",     // "lmstudio", "ollama", or "openrouter"
+        aiProvider: "lmstudio",     // "lmstudio", "ollama", or "openrouter"
         batchSize: 5,             // Process in batches to avoid rate limits
         delayBetweenBatches: 5000 // Milliseconds to wait between batches
     }
@@ -124,7 +124,7 @@ Now generate 3 realistic questions & answers:
     return promptsArray;
 }
 
-// Function 1: Send prompt to OpenAI or Ollama
+// Function 1: Send prompt to LMStudio or Ollama
 async function sendToLocal(prompt) {
     try {
         const response = await axios.post(
@@ -149,12 +149,12 @@ async function sendToLocal(prompt) {
 
         return response.data.choices[0].message.content;
     } catch (error) {
-        console.error(`OpenAI API error: ${error.message}`);
+        console.error(`LMStudio API error: ${error.message}`);
         if (error.response) {
             console.error(`Status: ${error.response.status}`);
             console.error(`Data: ${JSON.stringify(error.response.data)}`);
         }
-        throw new Error(`Failed to get response from OpenAI: ${error.message}`);
+        throw new Error(`Failed to get response from LMStudio: ${error.message}`);
     }
 }
 
@@ -399,9 +399,9 @@ async function getUserConfig() {
 
         if (providerChoice === '2') {
             config.processingOptions.aiProvider = "ollama";
-            config.openai.baseUrl = "http://localhost:11434/v1";
-            config.openai.model = await question("Enter Ollama model name (default: llama3): ") || "llama3";
-            config.openai.apiKey = "ollama";
+            config.lmstudio.baseUrl = "http://localhost:11434/v1";
+            config.lmstudio.model = await question("Enter Ollama model name (default: llama3): ") || "llama3";
+            config.lmstudio.apiKey = "ollama";
         } else if (providerChoice === '3') {
             config.processingOptions.aiProvider = "openrouter";
             config.openrouter.apiKey = await question("Enter OpenRouter API key: ");
