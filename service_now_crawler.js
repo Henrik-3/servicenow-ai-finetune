@@ -31,7 +31,7 @@ const config = {
     // Process options
     processingOptions: {
         useAI: true,              // Set to false to skip AI processing
-        aiProvider: "openai",     // "openai", "ollama", or "openrouter"
+        aiProvider: "openai",     // "lmstudio", "ollama", or "openrouter"
         batchSize: 5,             // Process in batches to avoid rate limits
         delayBetweenBatches: 5000 // Milliseconds to wait between batches
     }
