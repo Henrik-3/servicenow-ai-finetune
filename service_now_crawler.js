@@ -36,14 +36,54 @@ const config = {
         delayBetweenBatches: 5000 // Milliseconds to wait between batches
     }
 };
-const headers = {
-    "Cookie": "notice_preferences=2:; notice_gdpr_prefs=0,1,2:; cmapi_gtm_bl=; cmapi_cookie_privacy=permit 1,2,3; BIGipServerpool_devportalprod=c9f68a527a3f785b10c73ae81e0add94; AMCVS_2A2A138653C66CB60A490D45%40AdobeOrg=1; glide_user_route=glide.e1476ef0e745babc933765dc1b5a9cde; glide_node_id_for_js=86c3abee6a0ee7b8ca79aec874ede947962141076601ec0d4df1b64321380258; bm_sz=813DA6B9B1C27A236AFFB15B45582FE7~YAAQu3p7XLELe46VAQAA2gEEqxs7G80PjkpjLdZxTa1QYzH//eKj9jk6g1CWGr+mrt/8fPInyCfQngWHwE2soOuFf6iLtmxiv+abxH+qwAoMxQRH15kv4zFXYSguUx8jisY+jSmHT9qgX91P9iU5zTjDAxvbpas2nD7E2PLtUxNFXuZlJ1iYN4YIWWuZrJgXu+S0gUBgHpd/C2xB475HnNlHHS6QONo7o/BvmslxgVOz/hdidzewmCsLcbT42cmwYu6jKkRnEcHvHc2KndXOXCSzEM6VmqUqTzOLIKkkuLTkHRiFndpdyc3OmM/AgLndRuEg858cX6gYc2bP7jZV+fmwShfX1dh/ACAIEpDz/r1qBGFGmfi5ZC7chg+vufRezw4zQJRf7rlSJgzjI6Yav+f/oA==~3229238~3687984; notice_behavior=expressed,eu; _abck=181605BA6B174593896679CF7EBA797C~0~YAAQu3p7XHEMe46VAQAA4wcEqw1ixXFFt6oodRkwCa6WEQnys1Dbp6mMFQrTqooaVZ3UCPlnZDE32sNAmT7gLyLli/5eBPVKTdXfHz/aLuoaWFr1svcsOVmFzm188QmcIVG48txjRaaqjmDAARf5PpIgg9y946mZR6V9WMhoND2U14rN+dX9ETK3mamv8NsYtL5/OoIkS1O1hrwjAFiK9WR0tapgaGb3NflWSubxVy+T8VC4c4OXlxzA6Tj1hxvSIcBopjRteqatY3SxacENyjM9wkCfZha1sG469AbWKD3neZFWjrwuuJ3JvU8dkEDfSD5PKEvZiqR7ne6jhnPVad57g9TlUEZUdioCKNJan80zTPPer9PWeNXLlkl0FWBc8bl+45RaE3dPEwMAB3r81hBvY1GENmMJFGTN9Wh2rIOslAnJjPgM+8DfZSyrtAKWuNBC3EB8Qrw+VH0XropSHq+AFxwQQovDL0ioO+/jGApHkyQ+6+kw6u0ONkEfkoM=~-1~||0||~-1; TAsessionID=9f06fc30-1688-4075-b896-3ce487175270|EXISTING; JSESSIONID=4F53D862FFDD85DFA83484A6D76D778A; sso_seamless_local=1742343989116; AMCV_2A2A138653C66CB60A490D45%40AdobeOrg=-408604571%7CMCIDTS%7C20165%7CMCMID%7C25021386690991074286449544109658458666%7CMCOPTOUT-1742347592s%7CNONE%7CvVersion%7C4.6.0%7CMCAID%7CNONE",
-    "X-Usertoken": "8a2da87adb18e6545593c4be1396192b651132366bce4e41899ba1974bc5e6743578d004"
+let headers = {
+    "Cookie": "notice_preferences=2:; notice_gdpr_prefs=0,1,2:; cmapi_gtm_bl=; cmapi_cookie_privacy=permit 1,2,3; _abck=181605BA6B174593896679CF7EBA797C~0~YAAQu3p7XHEMe46VAQAA4wcEqw1ixXFFt6oodRkwCa6WEQnys1Dbp6mMFQrTqooaVZ3UCPlnZDE32sNAmT7gLyLli/5eBPVKTdXfHz/aLuoaWFr1svcsOVmFzm188QmcIVG48txjRaaqjmDAARf5PpIgg9y946mZR6V9WMhoND2U14rN+dX9ETK3mamv8NsYtL5/OoIkS1O1hrwjAFiK9WR0tapgaGb3NflWSubxVy+T8VC4c4OXlxzA6Tj1hxvSIcBopjRteqatY3SxacENyjM9wkCfZha1sG469AbWKD3neZFWjrwuuJ3JvU8dkEDfSD5PKEvZiqR7ne6jhnPVad57g9TlUEZUdioCKNJan80zTPPer9PWeNXLlkl0FWBc8bl+45RaE3dPEwMAB3r81hBvY1GENmMJFGTN9Wh2rIOslAnJjPgM+8DfZSyrtAKWuNBC3EB8Qrw+VH0XropSHq+AFxwQQovDL0ioO+/jGApHkyQ+6+kw6u0ONkEfkoM=~-1~||0||~-1; BIGipServerpool_devportalprod=8fc7cb77eda512b0c316160a832a7d90; AMCVS_2A2A138653C66CB60A490D45%40AdobeOrg=1; TAsessionID=83f1ec96-59b3-4e9e-a3cd-eeb2a5748c5c|EXISTING; notice_behavior=expressed,eu; glide_user_route=glide.477175977487be25a53b56bca350c08f; glide_node_id_for_js=f2b2c30d9cd1bd746dd1ac887ceeeacdf52a79ca611ebdcd633aba5ae889dfa0; JSESSIONID=954A585192B2462E4F87CECF3D74156D; sso_seamless_local=1742417609108; AMCV_2A2A138653C66CB60A490D45%40AdobeOrg=-408604571%7CMCIDTS%7C20167%7CMCMID%7C25021386690991074286449544109658458666%7CMCOPTOUT-1742421211s%7CNONE%7CvVersion%7C4.6.0%7CMCAID%7CNONE",
+    "X-Usertoken": "77f549c3db5c2a540b09e6be139619ac70465966066ddf50f271fb5222097048aa8b4569"
 }
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
+}
+
+const axiosInstance = axios.create();
+axiosInstance.interceptors.response.use(function (response) {
+    return response;
+}, function (error) {
+    const setCookieHeaders = error.response.headers['set-cookie'];
+    if (setCookieHeaders && setCookieHeaders.length > 0) {
+        headers.Cookie = setCookieHeaders.map(cookie => cookie.split(';')[0]).join('; ');
+        console.log('Updated cookies:', headers.Cookie);
+    }
+    if (error.response.headers['x-usertoken-response']) {
+        headers['X-Usertoken'] = error.response.headers['x-usertoken-response'];
+        console.log('Updated X-Usertoken:', headers['X-Usertoken']);
+    }
+    return Promise.reject(error);
+});
+axiosInstance.interceptors.request.use(config => {
+    config.headers = {
+        ...config.headers,
+        'Cookie': headers.Cookie,
+        'X-Usertoken': headers['X-Usertoken'],
+        'User-Agent': 'Node.js ServiceNow Crawler',
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+    };
+    return config;
+}, error => Promise.reject(error));
+async function axiosRequestWithRetry(config, retries = 0) {
+    try {
+        return await axiosInstance(config);
+    } catch (err) {
+        if (err.response && err.response.status === 401 && retries < 3) {
+            console.warn(`401 received, refreshing cookies and retrying (attempt ${retries + 1})...`);
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            return axiosRequestWithRetry(config, retries + 1);
+        } else {
+            throw err;
+        }
+    }
 }
 
 function removeHtmlTagsAndElements(text) {
@@ -96,20 +136,20 @@ function formatDocPrompt(docData) {
 
             // Build the DocPrompt format
             const prompt = `
-Based on the following method from the ServiceNow documentation, generate 3 realistic questions that a developer might ask. Formulate the appropriate answer for each, including a code example. Start each Question with "Question 1:", "Question 2:", etc.
-
-Method: ${classData.name}.${method.name}
-Description: ${removeHtmlTagsAndElements(method.text) || ''}. ${removeHtmlTagsAndElements(method.text2) || ''}
-
-Parameter:
-${paramString}
-
-Returns: ${returnString}
-
-${exampleString}
-
-Now generate 3 realistic questions & answers:
-      `.trim();
+            Based on the following ServiceNow method documentation, generate at least 10 realistic developer questions (not just 3 or 6) that vary in style and phrasing. For each question:
+            - Answer with a different structure (short summary, detailed explanation, bullet-point answer).
+            - Include a concise code example.
+            - Optionally, add a helpful tip or best practice.
+            - Use different tones (formal, casual, concise, verbose).
+            - Separate each question with a clear marker like "### Question {number}:" so parsing is reliable.
+            - Make sure each question ends with a question mark.
+            
+            Method: ${classData.name}.${method.name}
+            Description: ${removeHtmlTagsAndElements(method.text) || ''}. ${removeHtmlTagsAndElements(method.text2) || ''}
+            Parameters:\n${paramString}
+            Return Value:\n${returnString}
+            ${exampleString}
+            `;
 
             promptsArray.push({
                 className: classData.name,
@@ -174,8 +214,8 @@ async function sendToOpenRouter(prompt) {
                     { role: "system", content: "You are a helpful ServiceNow developer assistant." },
                     { role: "user", content: prompt }
                 ],
-                temperature: 0.7,
-                max_tokens: 2048
+                // Switch random between 0.7 and 1.0 for temperature
+                temperature: 0.7 + Math.random() * 0.3,
             },
             {
                 headers: {
@@ -206,79 +246,30 @@ function parseAIResponse(aiResponse) {
 
     const conversations = [];
 
-    // Simple regex pattern matching for questions
-    // Looking for patterns like "Question 1:" or "Q1:" or numbered questions
-    const questionPattern = /(?:Question\s*(\d+)[:.]\s*|Q(\d+)[:.]\s*|(\d+)[:.]\s*)/g;
+    // Split nach "### Question {number}:" - falls vorhanden
+    const questionBlocks = aiResponse.split(/###\s*Question\s*\d+:/i).map(b => b.trim()).filter(Boolean);
 
-    let parts = aiResponse.split(questionPattern).filter(Boolean);
+    for (const block of questionBlocks) {
+        // Suche den **Answer:** Marker
+        const answerMarkerIndex = block.indexOf("**Answer:**");
+        if (answerMarkerIndex !== -1) {
+            const question = block.substring(0, answerMarkerIndex).trim();
+            const answer = block.substring(answerMarkerIndex + "**Answer:**".length).trim();
 
-    // Process parts to extract questions and answers
-    for (let i = 0; i < parts.length; i++) {
-        // Skip the first part if it's just an introduction
-        if (i === 0 && !isNaN(parts[i])) {
-            continue;
-        }
-
-        // Check if the current part is a number (question index)
-        if (!isNaN(parts[i]) && parts[i+1] && isNaN(parts[i+1])) {
-            // This is a question number, and the next part is the question + answer
-            const qaContent = parts[i+1].trim();
-
-            // Try to split question and answer
-            let questionEnd = qaContent.search(/\?|\.\s|\n/);
-            if (questionEnd > 10) { // Ensure we have a reasonable question length
-                const question = qaContent.substring(0, questionEnd + 1).trim();
-                const answer = qaContent.substring(questionEnd + 1).trim();
-
-                if (question && answer) {
-                    conversations.push({ question, answer });
-                }
-            } else {
-                // Try to find another split point if the first one failed
-                const lines = qaContent.split('\n');
-                if (lines.length > 1) {
-                    const question = lines[0].trim();
-                    const answer = lines.slice(1).join('\n').trim();
-
-                    if (question && answer) {
-                        conversations.push({ question, answer });
-                    }
-                }
-            }
-
-            i++; // Skip the next part as we've already processed it
-        } else if (parts[i].includes('?')) {
-            // This might be a question-answer pair without explicit numbering
-            const qaContent = parts[i].trim();
-            const questionEnd = qaContent.indexOf('?') + 1;
-
-            if (questionEnd > 10) { // Ensure we have a reasonable question length
-                const question = qaContent.substring(0, questionEnd).trim();
-                const answer = qaContent.substring(questionEnd).trim();
-
-                if (question && answer) {
-                    conversations.push({ question, answer });
-                }
+            if (question && answer && answer.length > 20) {
+                conversations.push({ question, answer });
             }
         }
     }
 
-    // If regular parsing failed, try a more aggressive approach
-    if (conversations.length === 0) {
-        // Split by double newlines, which often separate QA pairs
-        const blocks = aiResponse.split(/\n\s*\n/).filter(Boolean);
+    // Fallback, falls keine Blöcke erkannt wurden:
+    if (conversations.length === 0 && aiResponse.includes("**Answer:**")) {
+        const parts = aiResponse.split("**Answer:**");
+        const question = parts[0].trim();
+        const answer = parts[1].trim();
 
-        for (let block of blocks) {
-            // Look for question marks or sentence endings
-            const questionEnd = block.search(/\?|\.\s/);
-            if (questionEnd > 10 && questionEnd < block.length / 2) {
-                const question = block.substring(0, questionEnd + 1).trim();
-                const answer = block.substring(questionEnd + 1).trim();
-
-                if (question && answer) {
-                    conversations.push({ question, answer });
-                }
-            }
+        if (question && answer && answer.length > 20) {
+            conversations.push({ question, answer });
         }
     }
 
@@ -358,13 +349,7 @@ async function processBatch(prompts, writeStream, finetuneStream) {
                                 role: "assistant",
                                 content: conversation.answer
                             }
-                        ],
-                        metadata: {
-                            className: processedPrompt.className,
-                            methodName: processedPrompt.methodName,
-                            version: processedPrompt.metadata.version,
-                            scope: processedPrompt.metadata.scope
-                        }
+                        ]
                     };
 
                     finetuneStream.write(JSON.stringify(finetuneFormat) + '\n');
@@ -410,7 +395,7 @@ async function getUserConfig() {
         } else if (providerChoice === '3') {
             config.processingOptions.aiProvider = "openrouter";
             config.openrouter.apiKey = await question("Enter OpenRouter API key: ");
-            const modelChoice = await question("Enter OpenRouter model ID (default: qwen/qwen-2.5-coder-32b-instruct): ");
+            const modelChoice = await question("Enter OpenRouter model ID (default: google/gemini-2.0-flash-001): ");
             if (modelChoice) config.openrouter.model = modelChoice;
         }
 
@@ -458,7 +443,7 @@ async function crawlServiceNowDocs() {
             // Step 1: Get the document identifier list for the current scope
             const navlistUrl = `https://developer.servicenow.com/devportal.do?sysparm_data=%7B%22action%22:%22api.navlist%22,%22data%22:%7B%22navbar%22:%22${listEntry.devportal}%22,%22release%22:%22${version}%22%7D%7D`;
 
-            const navlistResponse = await axios.get(navlistUrl, {headers});
+            const navlistResponse = await axiosRequestWithRetry({ method: 'get', url: navlistUrl })
             const dcIdentifierList = navlistResponse.data[listEntry.devportal] || [];
 
             console.log(`Found ${dcIdentifierList.length} document identifiers for ${navlistUrl}`);
@@ -472,7 +457,7 @@ async function crawlServiceNowDocs() {
                 // Step 3: Get extended documentation for the current document
                 const docUrl = `https://developer.servicenow.com/devportal.do?sysparm_data=%7B%22action%22:%22api.docs%22,%22data%22:%7B%22id%22:%22${doc.dc_identifier}%22,%22release%22:%22${version}%22%7D%7D`;
 
-                const docsResponse = await axios.get(docUrl, {headers});
+                const docsResponse = await axiosRequestWithRetry({ method: 'get', url: docUrl });
                 const extendedDocs = docsResponse.data;
 
                 // Add the scope information to the extended docs object
